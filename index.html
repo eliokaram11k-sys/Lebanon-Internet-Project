@@ -32,9 +32,27 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #334155;
         }
+        #loading-screen {
+            background-image: url('https://cdn.pixabay.com/photo/2020/06/15/18/25/lebanon-5302959_1280.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .flag-cedar {
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+        }
     </style>
 </head>
 <body class="bg-black text-slate-300">
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed top-0 left-0 w-full h-full z-[100] flex flex-col items-center justify-center bg-black">
+        <div class="relative w-48 h-32 bg-white rounded-lg shadow-2xl overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1/4 bg-red-600"></div>
+            <div class="absolute bottom-0 left-0 w-full h-1/4 bg-red-600"></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_Lebanon_cedar.svg/300px-Flag_of_Lebanon_cedar.svg.png" alt="Cedar of Lebanon" class="absolute inset-0 m-auto h-20 w-20 flag-cedar">
+        </div>
+        <p class="text-white text-2xl font-bold mt-8 animate-pulse">جاري تحميل المشروع...</p>
+    </div>
 
     <!-- Sidebar (Hidden by default) -->
     <aside id="sidebar" class="bg-slate-900/95 backdrop-blur-md w-72 h-screen p-8 fixed top-0 right-0 z-50 shadow-2xl border-l border-slate-800">

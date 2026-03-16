@@ -1,6 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
 
+    // --- Loading Screen Animation --- //
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+        gsap.to(loadingScreen, {
+            duration: 1.5, 
+            opacity: 0, 
+            delay: 2, // Show loading screen for 2 seconds
+            ease: "power2.out",
+            onComplete: () => {
+                loadingScreen.style.display = 'none';
+            }
+        });
+        gsap.from('#loading-screen .relative', { duration: 1, scale: 0.8, opacity: 0, ease: 'elastic.out(1, 0.75)', delay: 0.5 });
+    }
+
     // --- Sidebar & Mobile Menu --- //
     const sidebar = document.getElementById('sidebar');
     const menuToggle = document.getElementById('menu-toggle');
@@ -72,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Active Link Highlighting --- //
-    const currentPath = decodeURIComponent(window.location.pathname.split('/').pop()) || 'ابدأ من هنا.html';
+    const currentPath = decodeURIComponent(window.location.pathname.split('/').pop()) || 'index.html';
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (href === currentPath) {
@@ -83,8 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- GSAP Scroll Animations --- //
     // 1. Header Animation
-    gsap.from('header h1', { duration: 1.5, y: -100, opacity: 0, ease: 'expo.out', delay: 0.2 });
-    gsap.from('header p', { duration: 1.5, y: 100, opacity: 0, ease: 'expo.out', delay: 0.4 });
+    gsap.from('header h1', { duration: 1.5, y: -100, opacity: 0, ease: 'expo.out', delay: 2.2 });
+    gsap.from('header p', { duration: 1.5, y: 100, opacity: 0, ease: 'expo.out', delay: 2.4 });
 
     // 2. Content Section Scroll-Triggered Animation
     const sections = gsap.utils.toArray('.content-section');
